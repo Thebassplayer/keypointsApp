@@ -1,6 +1,9 @@
 import React from "react";
 import { useFetchConcepts } from "../hooks/useFetchConcepts";
 
+import { Disclosure } from "@headlessui/react";
+import { ChevronUpIcon } from "@heroicons/react/20/solid";
+
 const ConceptsList = () => {
   const { concepts, loading, error } = useFetchConcepts();
 
@@ -17,22 +20,28 @@ const ConceptsList = () => {
   }
 
   return (
-    <div className="bg-gray-800 rounded-lg shadow-lg p-6">
-      <h2 className="text-2xl font-medium text-gray-200 mb-4">Concepts</h2>
-      <ul>
-        {concepts.map(concept => (
-          <li key={concept.title} className="flex items-center mb-4">
-            <div
-              className="bg-cover h-12 w-12 rounded-full mr-4"
-              style={{ backgroundImage: `url(${concept.imageUrl})` }}
-            ></div>
-            <div className="text-gray-200">
-              <h3 className="text-lg font-medium">{concept.title}</h3>
-              <p className="text-sm">{concept.explanation}</p>
-            </div>
-          </li>
+    <div className="w-full px-4 pt-16">
+      <div className="mx-auto w-full max-w-md rounded-2xl bg-white p-2">
+        {concepts.map(({ title, explanation, example }) => (
+          <Disclosure as="div" className="mt-2">
+            {({ open }) => (
+              <>
+                <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                  <span>{title}</span>
+                  <ChevronUpIcon
+                    className={`${
+                      open ? "rotate-180 transform" : ""
+                    } h-5 w-5 text-purple-500`}
+                  />
+                </Disclosure.Button>
+                <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
+                  {explanation}
+                </Disclosure.Panel>
+              </>
+            )}
+          </Disclosure>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
