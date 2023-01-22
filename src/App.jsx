@@ -1,12 +1,12 @@
 import "./index.css";
 
 import ConceptsTable from "./components/ConceptsTable.component";
-import Nav from "./components/nav.component";
+import Head from "./components/Head.component";
 
 function App() {
   return (
     <div className="w-full">
-      <Nav />
+      <Head />
       <ConceptsTable />
     </div>
   );
