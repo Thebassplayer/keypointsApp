@@ -25,12 +25,14 @@ const ConceptsList = () => {
         <TableHeading />
         {concepts
           .sort((a, b) => (a.title > b.title ? 1 : b.title > a.title ? -1 : 0))
-          .map(({ title, explanation, example, tags }, index) => (
-            <ConceptCard
-              key={`${title.slice(0, 5)}-${index}`}
-              props={{ title, explanation, example, tags }}
-            />
-          ))}
+          .map(({ title, explanation, example, tags, _id }) => {
+            return (
+              <ConceptCard
+                key={_id}
+                props={{ title, explanation, example, tags, _id }}
+              />
+            );
+          })}
       </div>
     </div>
   );
