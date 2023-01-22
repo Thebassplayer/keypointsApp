@@ -5,13 +5,13 @@ import ExplanationContainer from "./ExplanationContainer.component";
 
 import React from "react";
 
-function Concept({ props }) {
-  const { title, explanation } = props;
+function ConceptCard({ props }) {
+  const { title, explanation, tags } = props;
   return (
     <Disclosure as="div" className="mt-4 ">
       {({ open }) => (
         <>
-          <ConceptButton title={title} />
+          <ConceptButton title={title} tags={tags} />
           <ExplanationContainer explanation={explanation} />
         </>
       )}
@@ -19,4 +19,4 @@ function Concept({ props }) {
   );
 }
 
-export default Concept;
+export default ConceptCard;

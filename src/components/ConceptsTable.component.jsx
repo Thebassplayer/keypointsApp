@@ -25,10 +25,10 @@ const ConceptsList = () => {
         <TableHeading />
         {concepts
           .sort((a, b) => (a.title > b.title ? 1 : b.title > a.title ? -1 : 0))
-          .map(({ title, explanation, example }, index) => (
+          .map(({ title, explanation, example, tags }, index) => (
             <ConceptCard
               key={`${title.slice(0, 5)}-${index}`}
-              props={{ title, explanation, example }}
+              props={{ title, explanation, example, tags }}
             />
           ))}
       </div>
