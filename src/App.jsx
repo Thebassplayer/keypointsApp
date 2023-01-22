@@ -1,11 +1,11 @@
 import "./index.css";
 
-import ConceptsList from "./components/ConceptList";
+import ConceptsList from "./components/ConceptList.component";
 import Nav from "./components/nav.component";
 
 function App() {
   return (
-    <div className="bg-gradient-to-r-darkpurple-orange">
+    <div className="w-full">
       <Nav />
       <ConceptsList />
     </div>
