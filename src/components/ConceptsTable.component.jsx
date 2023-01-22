@@ -1,7 +1,8 @@
 import React from "react";
 import { useFetchConcepts } from "../hooks/useFetchConcepts";
 
-import Concept from "./Concept.component";
+import ConceptCard from "./ConceptCard.component";
+import TableHeading from "./TableHeading.component";
 
 const ConceptsList = () => {
   const { concepts, loading, error } = useFetchConcepts();
@@ -21,12 +22,15 @@ const ConceptsList = () => {
   return (
     <div className="w-full px-4 pt-16">
       <div className="mx-auto w-full max-w-4xl rounded-2xl bg-white shadow-md p-2">
-        {concepts.map(({ title, explanation, example }, index) => (
-          <Concept
-            key={`${title.slice(0, 5)}-${index}`}
-            props={{ title, explanation, example }}
-          />
-        ))}
+        <TableHeading />
+        {concepts
+          .sort((a, b) => (a.title > b.title ? 1 : b.title > a.title ? -1 : 0))
+          .map(({ title, explanation, example }, index) => (
+            <ConceptCard
+              key={`${title.slice(0, 5)}-${index}`}
+              props={{ title, explanation, example }}
+            />
+          ))}
       </div>
     </div>
   );
