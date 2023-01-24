@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --color-50: #f8f8f8;
+  --color-100: #f0f0f0;
+  --color-200: #e4e4e4;
+  --color-300: #d1d1d1;
+  --color-400: #adadad;
+  --color-500: #9a9a9a;
+  --color-600: #818181;
+  --color-700: #6a6a6a;
+  --color-800: #5a5a5a;
+  --color-900: #4e4e4e;
+  --color-hover: #bae6fd;
+}
