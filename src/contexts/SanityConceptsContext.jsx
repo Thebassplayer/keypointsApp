@@ -2,16 +2,16 @@ import React, { createContext, useContext, useState } from "react";
 
 import { useFetchSanityConcepts } from "../hooks/useFetchSanityConcepts";
 
-const SanityContext = createContext();
+const SanityConceptsContext = createContext();
 
 export function useSanityData() {
-  return useContext(SanityContext);
+  return useContext(SanityConceptsContext);
 }
 
 export function SanityDataProvider({ children }) {
   return (
-    <SanityContext.Provider value={useFetchSanityConcepts()}>
+    <SanityConceptsContext.Provider value={useFetchSanityConcepts()}>
       {children}
-    </SanityContext.Provider>
+    </SanityConceptsContext.Provider>
   );
 }

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { useSanityData } from "../contexts/sanityContext";
+import { useSanityData } from "../contexts/SanityConceptsContext";
 
 import ConceptCard from "./ConceptCard.component";
 import TableHeading from "./TableHeading.component";

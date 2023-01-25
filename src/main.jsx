@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 
-import { SanityDataProvider } from "./contexts/sanityContext";
+import { SanityDataProvider } from "./contexts/SanityConceptsContext";
 
 import "./index.css";
 
