@@ -1,11 +1,12 @@
 import React from "react";
-import { useFetchConcepts } from "../hooks/useFetchConcepts";
+
+import { useSanityData } from "../contexts/sanityContext";
 
 import ConceptCard from "./ConceptCard.component";
 import TableHeading from "./TableHeading.component";
 
 const ConceptsList = () => {
-  const { concepts, loading, error } = useFetchConcepts();
+  const { concepts, loading, error } = useSanityData();
 
   if (loading) {
     return <div className="py-8 text-center">Loading...</div>;

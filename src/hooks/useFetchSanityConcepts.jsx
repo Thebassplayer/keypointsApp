@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { client } from "../client.js";
 
-export const useFetchConcepts = () => {
+export const useFetchSanityConcepts = () => {
   const [concepts, setConcepts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

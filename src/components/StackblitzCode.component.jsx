@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useFetchStackblitz } from "../hooks/useFetchStackblitz";
 import Spinner from "./Spinner.component";
 
-function ExampleCode({ example, id }) {
+function StackBlitzCode({ example, id }) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
 
@@ -29,4 +29,4 @@ function ExampleCode({ example, id }) {
   );
 }
 
-export default ExampleCode;
+export default StackBlitzCode;
