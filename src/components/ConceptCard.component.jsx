@@ -10,7 +10,7 @@ function ConceptCard({ props }) {
   const { title, explanation, example, tags, _id } = props;
 
   return (
-    <Disclosure as="div" className="">
+    <Disclosure as="div" className="snap-start">
       {({ open }) => (
         <>
           <ConceptButton title={title} tags={tags} />
