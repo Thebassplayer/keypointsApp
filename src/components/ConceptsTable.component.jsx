@@ -21,9 +21,9 @@ const ConceptsList = () => {
   }
 
   return (
-    <div className="h-full w-full px-4 pt-16 ">
-      <div className="mx-auto h-full w-full max-w-4xl overflow-y-auto rounded-2xl bg-white p-2 shadow-md">
-        <TableHeading />
+    <div className="mx-auto h-3/4 w-full max-w-4xl rounded-md bg-white">
+      <TableHeading />
+      <div className="h-full w-full divide-y divide-[color:var(--color-300)] overflow-y-auto">
         {concepts
           .sort((a, b) => (a.title > b.title ? 1 : b.title > a.title ? -1 : 0))
           .map(({ title, explanation, example, tags, _id }) => {
