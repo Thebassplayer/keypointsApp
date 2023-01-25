@@ -8,20 +8,20 @@ const ConceptsList = () => {
   const { concepts, loading, error } = useFetchConcepts();
 
   if (loading) {
-    return <div className="text-center py-8">Loading...</div>;
+    return <div className="py-8 text-center">Loading...</div>;
   }
 
   if (error) {
     return (
-      <div className="text-center py-8 text-red-500">
+      <div className="continer py-8 text-center text-red-500">
         An error occurred: {error.message}
       </div>
     );
   }
 
   return (
-    <div className="w-full h-full px-4 pt-16 ">
-      <div className="mx-auto w-full h-full overflow-y-auto max-w-4xl rounded-2xl bg-white shadow-md p-2">
+    <div className="h-full w-full px-4 pt-16 ">
+      <div className="mx-auto h-full w-full max-w-4xl overflow-y-auto rounded-2xl bg-white p-2 shadow-md">
         <TableHeading />
         {concepts
           .sort((a, b) => (a.title > b.title ? 1 : b.title > a.title ? -1 : 0))

@@ -1,12 +1,12 @@
 import "./index.css";
 
 import ConceptsTable from "./components/ConceptsTable.component";
-import Head from "./components/Nav.component";
+import Nav from "./components/nav.component";
 
 function App() {
   return (
-    <div className="w-full flex flex-col bg-[color:var(--color-600)]">
-      <Head />
+    <div className="flex w-full flex-col bg-[color:var(--color-600)]">
+      <Nav />
       <ConceptsTable />
     </div>
   );

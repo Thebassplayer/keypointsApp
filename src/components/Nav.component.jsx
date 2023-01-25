@@ -1,10 +1,10 @@
-// plugins: [require('@tailwindcss/forms')]
-
 import React from "react";
 
 function Nav() {
   return (
-    <div className="text-center text-4xl pt-8">Javascript Keypoints App</div>
+    <div className="pt-8 text-center font-roboto text-4xl font-bold">
+      Javascript Keypoints App
+    </div>
   );
 }
 
