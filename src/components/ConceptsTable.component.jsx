@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { useSanityData } from "../contexts/SanityConceptsContext";
+import { useTag } from "../contexts/selectedTagsContext";
 
 import ConceptCard from "./ConceptCard.component";
 import TableHeading from "./TableHeading.component";
 
 const ConceptsList = ({ searchValue }) => {
   const { concepts, loading, error } = useSanityData();
+  const selectedTag = useTag();
 
   if (loading) {
     return <div className="py-8 text-center">Loading...</div>;
@@ -25,8 +27,11 @@ const ConceptsList = ({ searchValue }) => {
       <TableHeading />
       <div className="w-full snap-y divide-y divide-[color:var(--color-300)] overflow-y-auto scroll-smooth rounded-b-md">
         {concepts
-          .filter(({ title, explanation, example, tags, _id }) =>
+          .filter(({ title }) =>
             title.toLowerCase().includes(searchValue.toLowerCase())
+          )
+          .filter(({ tags }) =>
+            !selectedTag ? true : tags && tags.includes(selectedTag)
           )
           .sort((a, b) => (a.title > b.title ? 1 : b.title > a.title ? -1 : 0))
           .map(({ title, explanation, example, tags, _id }) => {
