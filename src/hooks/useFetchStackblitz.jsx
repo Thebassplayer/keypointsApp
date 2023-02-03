@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import embedProject from "../utils/stackblitz/embedCode.utils";
 
-export const useFetchStackblitz = (example, id) => {
+export const useFetchStackblitz = (title, example, id) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -9,7 +9,7 @@ export const useFetchStackblitz = (example, id) => {
     const fetchData = async (example, id) => {
       try {
         setLoading(true);
-        const result = await embedProject(example, id);
+        const result = await embedProject(title, example, id);
 
         setLoading(false);
       } catch (err) {

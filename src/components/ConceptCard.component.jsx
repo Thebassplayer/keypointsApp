@@ -15,6 +15,7 @@ function ConceptCard({ props }) {
         <>
           <ConceptButton title={title} tags={tags} />
           <ExplanationContainer
+            title={title}
             explanation={explanation}
             example={example}
             id={_id}

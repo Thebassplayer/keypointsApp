@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import { useFetchStackblitz } from "../hooks/useFetchStackblitz";
 import Spinner from "./Spinner.component";
 
-function StackBlitzCode({ example, id }) {
+function StackBlitzCode({ title, example, id }) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
 
   if (example) {
-    const { loading, error } = useFetchStackblitz(example, id);
+    const { loading, error } = useFetchStackblitz(title, example, id);
     useEffect(() => {
       setIsLoading(loading);
       error && setError(error);
