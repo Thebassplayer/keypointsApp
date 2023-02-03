@@ -11,6 +11,7 @@
   "dependencies": {
     "@headlessui/react": "^1.7.7",
     "@heroicons/react": "^2.0.13",
+    "@portabletext/react": "^2.0.1",
     "@sanity/client": "^4.0.1",
     "@sanity/image-url": "^1.0.2",
     "@stackblitz/sdk": "^1.8.1",
