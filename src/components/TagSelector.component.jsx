@@ -1,19 +1,21 @@
 import React from "react";
 import { useTagUpdate } from "../contexts/selectedTagsContext";
 
-function TagSelector() {
+function TagSelector({ globalTags }) {
   const updateTag = useTagUpdate();
 
   return (
     <>
       <select
-        className="h-min w-min rounded-sm text-black outline-0"
+        className="h-min w-min rounded-sm text-xs text-lime-700 outline-0"
         name="tags"
         id="tags"
         onChange={e => updateTag(e.target.value)}
       >
-        <option value="">tag</option>
-        <option value="javascript">javascript</option>
+        <option value="">all</option>
+        {globalTags.map(tag => (
+          <option value={tag}>{tag}</option>
+        ))}
       </select>
     </>
   );

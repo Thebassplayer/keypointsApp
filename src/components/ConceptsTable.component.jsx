@@ -8,7 +8,7 @@ import TableHeading from "./TableHeading.component";
 import Spinner from "./Spinner.component";
 
 const ConceptsList = ({ searchValue }) => {
-  const { concepts, loading, error } = useSanityData();
+  const { concepts, globalTags, loading, error } = useSanityData();
 
   const selectedTag = useTag();
 
@@ -30,16 +30,17 @@ const ConceptsList = ({ searchValue }) => {
 
   return (
     <div className="flex h-full max-w-4xl flex-col rounded-md bg-white">
-      <TableHeading />
+      <TableHeading globalTags={globalTags} />
       <div className="w-full snap-y divide-y divide-[color:var(--color-300)] overflow-y-auto scroll-smooth rounded-b-md">
         {concepts
+          .filter(Boolean)
+          .sort((a, b) => (a.title > b.title ? 1 : b.title > a.title ? -1 : 0))
           .filter(({ title }) =>
             title.toLowerCase().includes(searchValue.toLowerCase())
           )
           .filter(({ tags }) =>
             !selectedTag ? true : tags && tags.includes(selectedTag)
           )
-          .sort((a, b) => (a.title > b.title ? 1 : b.title > a.title ? -1 : 0))
           .map(({ _id, title, explanation, example, tags }) => {
             return (
               <ConceptCard

@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+import { getAllConceptsTags } from "../utils/sanity/getAllConceptsTags.js";
 import { client } from "../client.js";
 
 export const useFetchSanityConcepts = () => {
   const [concepts, setConcepts] = useState([]);
+  const [globalTags, setGlobalTags] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -13,6 +15,7 @@ export const useFetchSanityConcepts = () => {
         setLoading(true);
         const result = await client.fetch(query);
         setConcepts(result);
+        setGlobalTags(getAllConceptsTags(result));
         setLoading(false);
       } catch (err) {
         setError(err);
@@ -22,5 +25,5 @@ export const useFetchSanityConcepts = () => {
     fetchData(query);
   }, []);
 
-  return { concepts, loading, error };
+  return { concepts, globalTags, loading, error };
 };
