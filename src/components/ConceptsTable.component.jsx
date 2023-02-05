@@ -5,13 +5,19 @@ import { useTag } from "../contexts/selectedTagsContext";
 
 import ConceptCard from "./ConceptCard.component";
 import TableHeading from "./TableHeading.component";
+import Spinner from "./Spinner.component";
 
 const ConceptsList = ({ searchValue }) => {
   const { concepts, loading, error } = useSanityData();
+
   const selectedTag = useTag();
 
   if (loading) {
-    return <div className="py-8 text-center">Loading...</div>;
+    return (
+      <div className="flex items-center justify-center">
+        <Spinner />
+      </div>
+    );
   }
 
   if (error) {
@@ -34,11 +40,11 @@ const ConceptsList = ({ searchValue }) => {
             !selectedTag ? true : tags && tags.includes(selectedTag)
           )
           .sort((a, b) => (a.title > b.title ? 1 : b.title > a.title ? -1 : 0))
-          .map(({ title, explanation, example, tags, _id }) => {
+          .map(({ _id, title, explanation, example, tags }) => {
             return (
               <ConceptCard
                 key={_id}
-                props={{ title, explanation, example, tags, _id }}
+                props={{ _id, title, explanation, example, tags }}
               />
             );
           })}

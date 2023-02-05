@@ -7,19 +7,14 @@ import ExplanationContainer from "./ExplanationContainer.component";
 import React from "react";
 
 function ConceptCard({ props }) {
-  const { title, explanation, example, tags, _id } = props;
+  const { title, tags } = props;
 
   return (
     <Disclosure as="div" className="snap-start">
       {({ open }) => (
         <>
           <ConceptButton title={title} tags={tags} />
-          <ExplanationContainer
-            title={title}
-            explanation={explanation}
-            example={example}
-            id={_id}
-          />
+          <ExplanationContainer props={{ ...props }} />
         </>
       )}
     </Disclosure>

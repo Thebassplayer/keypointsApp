@@ -1,14 +1,18 @@
 import React from "react";
+import { PortableText } from "@portabletext/react";
 
 import { Disclosure } from "@headlessui/react";
 import ExampleCodeContainer from "./ExampleCodeContainer.component";
 import StackBlitzCode from "./StackblitzCode.component";
-function ExplanationContainer({ title, explanation, example, id }) {
+function ExplanationContainer({ props }) {
+  const { _id, title, explanation, example } = props;
   return (
     <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
-      <div>{explanation}</div>
+      <div className="prose">
+        <PortableText value={explanation} />
+      </div>
       {example ? <ExampleCodeContainer example={example} /> : ""}
-      <StackBlitzCode example={example} id={id} title={title} />
+      <StackBlitzCode example={example} id={_id} title={title} />
     </Disclosure.Panel>
   );
 }

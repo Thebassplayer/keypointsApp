@@ -7,6 +7,7 @@ export const client = sanityClient({
   apiVersion: "2022-12-27",
   useCdn: true,
   token: `${import.meta.env.VITE_SANITY_TOKEN}`,
+  ignoreBrowserTokenWarning: true,
 });
 
 const builder = imageUrlBuilder(client);
