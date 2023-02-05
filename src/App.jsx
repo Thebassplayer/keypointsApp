@@ -12,7 +12,7 @@ function App() {
 
   return (
     <div className="flex h-screen w-full flex-col items-center justify-between bg-[color:var(--color-600)] pt-4">
-      <div className="container flex h-3/4 w-full min-w-min max-w-4xl flex-col items-center px-2">
+      <div className="container flex w-full min-w-min max-w-4xl flex-col items-center overflow-hidden px-2">
         <Heading />
         <SearchBar setSearchValue={setSearchValue} searchValue={searchValue} />
         <ConceptsTable searchValue={searchValue} />
