@@ -13,7 +13,7 @@ function ConceptCard({ props }) {
     <Disclosure as="div" className="snap-start">
       {({ open }) => (
         <>
-          <ConceptButton title={title} tags={tags} />
+          <ConceptButton title={title} tags={tags} isOpen={open} />
           <ExplanationContainer props={{ ...props }} />
         </>
       )}

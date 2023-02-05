@@ -16,6 +16,16 @@
   --color-hover: #bae6fd;
 }
 
+html {
+  overflow: hidden;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  overflow: auto;
+}
+
 @layer components {
   .custom-heading-div {
     border-radius: 10% 80% 10% 80% / 0% 50% 0% 50%;
