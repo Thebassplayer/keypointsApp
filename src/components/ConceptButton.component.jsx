@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Disclosure } from "@headlessui/react";
-import { ChevronUpIcon } from "@heroicons/react/20/solid";
+import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
 function ConceptButton({ title, tags, isOpen }) {
   return (
@@ -10,7 +10,7 @@ function ConceptButton({ title, tags, isOpen }) {
         {tags ? tags.join(" ") : ""}
       </span>
       <span>
-        <ChevronUpIcon
+        <ChevronDownIcon
           className={`${
             isOpen
               ? "rotate-180 transform transition duration-200"
