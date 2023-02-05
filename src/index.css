@@ -15,3 +15,15 @@
   --color-900: #4e4e4e;
   --color-hover: #bae6fd;
 }
+
+@layer components {
+  .custom-heading-div {
+    border-radius: 10% 80% 10% 80% / 0% 50% 0% 50%;
+    background: rgb(34, 193, 195);
+    background: linear-gradient(
+      0deg,
+      rgba(34, 193, 195, 1) 0%,
+      rgba(253, 187, 45, 1) 100%
+    );
+  }
+}
