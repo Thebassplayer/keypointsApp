@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        roboto: ["Roboto Slab", "sans-serif"],
+        VT323: ["VT323", "sans-serif"],
       },
     },
   },

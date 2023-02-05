@@ -35,8 +35,9 @@ const ConceptsList = ({ searchValue }) => {
         {concepts
           .filter(Boolean)
           .sort((a, b) => (a.title > b.title ? 1 : b.title > a.title ? -1 : 0))
-          .filter(({ title }) =>
-            title.toLowerCase().includes(searchValue.toLowerCase())
+          .filter(
+            ({ title }) =>
+              title && title.toLowerCase().includes(searchValue.toLowerCase())
           )
           .filter(({ tags }) =>
             !selectedTag ? true : tags && tags.includes(selectedTag)

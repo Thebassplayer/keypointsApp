@@ -13,8 +13,10 @@ function TagSelector({ globalTags }) {
         onChange={e => updateTag(e.target.value)}
       >
         <option value="">all</option>
-        {globalTags.map(tag => (
-          <option value={tag}>{tag}</option>
+        {globalTags.map((tag, index) => (
+          <option key={`${tag}-${index}`} value={tag}>
+            {tag}
+          </option>
         ))}
       </select>
     </>

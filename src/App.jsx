@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div className="flex h-screen w-full flex-col items-center justify-start overflow-hidden bg-[color:var(--color-600)] p-4">
-      <div className="h-3/4 w-full max-w-4xl">
+      <div className="container h-3/4 w-full min-w-min max-w-4xl">
         <Nav />
         <SearchBar setSearchValue={setSearchValue} searchValue={searchValue} />
         <ConceptsTable searchValue={searchValue} />
