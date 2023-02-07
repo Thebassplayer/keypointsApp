@@ -14,7 +14,7 @@ const ConceptsList = ({ searchValue }) => {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center">
+      <div className="flex h-full items-center justify-center">
         <Spinner />
       </div>
     );
