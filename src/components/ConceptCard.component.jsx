@@ -12,10 +12,12 @@ function ConceptCard({ props }) {
   return (
     <Disclosure as="div" className="snap-start">
       {({ open }) => (
-        <>
+        <div
+          className={open ? "border border-[color:var(--color-active)]" : ""}
+        >
           <ConceptButton title={title} tags={tags} isOpen={open} />
           <ExplanationContainer props={{ ...props }} />
-        </>
+        </div>
       )}
     </Disclosure>
   );
