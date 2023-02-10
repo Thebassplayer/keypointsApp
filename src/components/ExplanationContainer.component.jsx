@@ -20,7 +20,11 @@ function ExplanationContainer({ props }) {
     <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
       {explanation && (
         <div className="prose max-w-none pb-2">
-          <PortableText value={explanation} components={sanityComponents} />
+          <PortableText
+            style={{ "p > code": { color: "red" } }}
+            value={explanation}
+            components={sanityComponents}
+          />
         </div>
       )}
       {example ? <ExampleCodeContainer example={example} /> : ""}
