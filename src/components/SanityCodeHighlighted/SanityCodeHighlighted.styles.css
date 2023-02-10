@@ -119,3 +119,20 @@ pre[class*="language-"] {
 .token.inserted {
   color: green;
 }
+
+/* Code Line highlighting */
+p code,
+li code {
+  background: rgba(135, 131, 120, 0.15);
+  padding: 0.1em;
+  border-radius: 0.3em;
+  white-space: normal;
+  color: #eb5757 !important;
+}
+
+/* Remove backtics */
+
+code::after,
+code::before {
+  content: none !important;
+}
