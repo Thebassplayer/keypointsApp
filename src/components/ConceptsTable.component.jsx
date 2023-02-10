@@ -29,7 +29,7 @@ const ConceptsList = ({ searchValue }) => {
   }
 
   return (
-    <div className="flex h-min w-full max-w-4xl flex-col overflow-hidden rounded-md bg-white shadow-lg">
+    <div className="flex h-min w-full max-w-4xl flex-col overflow-hidden rounded-md bg-white">
       <TableHeading globalTags={globalTags} />
       <div className="w-full snap-y divide-y divide-[color:var(--color-300)] overflow-y-auto overscroll-none scroll-smooth rounded-b-md">
         {concepts

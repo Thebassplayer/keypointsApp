@@ -3,7 +3,7 @@ import React, { useState } from "react";
 function SearchBar({ setSearchValue, searchValue }) {
   return (
     <input
-      className="mb-4 h-10 w-full rounded-md p-2 text-lg font-medium shadow-lg outline-0"
+      className="mb-4 h-10 w-full rounded-md p-2 text-lg font-medium outline-0"
       type="text"
       placeholder="search..."
       id="search-bar"
