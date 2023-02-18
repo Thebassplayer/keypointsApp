@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import { useSanityData } from "../contexts/SanityConceptsContext";
 import { useTag } from "../contexts/selectedTagsContext";
