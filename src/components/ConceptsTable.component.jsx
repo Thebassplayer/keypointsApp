@@ -7,6 +7,7 @@ import { useDebouncedSearch } from "../hooks/useDebouncedSearch";
 import ConceptCard from "./ConceptCard.component";
 import TableHeading from "./TableHeading.component";
 import Spinner from "./Spinner.component";
+import ErrorMessage from "./ErrorMessage.component";
 
 const ConceptsList = ({ searchValue }) => {
   const { concepts, globalTags, loading, error } = useSanityData();
@@ -30,13 +31,7 @@ const ConceptsList = ({ searchValue }) => {
   }
 
   if (error) {
-    console.log(error);
-    return (
-      <div className="continer py-8 text-center text-red-500">
-        <h2>An error occurred {error.message}</h2>
-        <h3>Please, try it later</h3>
-      </div>
-    );
+    return <ErrorMessage />;
   }
 
   return (
