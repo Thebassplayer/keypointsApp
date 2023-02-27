@@ -2,7 +2,7 @@ import React from "react";
 
 import { useSanityData } from "../contexts/SanityConceptsContext";
 import { useTag } from "../contexts/selectedTagsContext";
-import { useSearch } from "../hooks/useSearch";
+import { useDebouncedSearch } from "../hooks/useDebouncedSearch";
 
 import ConceptCard from "./ConceptCard.component";
 import TableHeading from "./TableHeading.component";
@@ -12,11 +12,13 @@ const ConceptsList = ({ searchValue }) => {
   const { concepts, globalTags, loading, error } = useSanityData();
 
   const selectedTag = useTag();
-  const { searchResults } = useSearch(
+  const debounceDelay = 600;
+  const { searchResults } = useDebouncedSearch(
     concepts,
     searchValue,
     globalTags,
-    selectedTag
+    selectedTag,
+    debounceDelay
   );
 
   if (loading) {
