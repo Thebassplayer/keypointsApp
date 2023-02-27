@@ -30,9 +30,11 @@ const ConceptsList = ({ searchValue }) => {
   }
 
   if (error) {
+    console.log(error);
     return (
       <div className="continer py-8 text-center text-red-500">
-        An error occurred: {error.message}
+        <h2>An error occurred {error.message}</h2>
+        <h3>Please, try it later</h3>
       </div>
     );
   }
