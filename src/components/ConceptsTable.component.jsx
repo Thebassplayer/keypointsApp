@@ -2,6 +2,7 @@ import React from "react";
 
 import { useSanityData } from "../contexts/SanityConceptsContext";
 import { useTag } from "../contexts/selectedTagsContext";
+import { useSearch } from "../hooks/useSearch";
 
 import ConceptCard from "./ConceptCard.component";
 import TableHeading from "./TableHeading.component";
@@ -11,6 +12,12 @@ const ConceptsList = ({ searchValue }) => {
   const { concepts, globalTags, loading, error } = useSanityData();
 
   const selectedTag = useTag();
+  const { searchResults } = useSearch(
+    concepts,
+    searchValue,
+    globalTags,
+    selectedTag
+  );
 
   if (loading) {
     return (
@@ -32,16 +39,8 @@ const ConceptsList = ({ searchValue }) => {
     <div className="flex h-min w-full max-w-4xl flex-col overflow-hidden rounded-md bg-white">
       <TableHeading globalTags={globalTags} />
       <div className="w-full snap-y divide-y divide-[color:var(--color-300)] overflow-y-auto overscroll-none scroll-smooth rounded-b-md">
-        {concepts
-          .filter(Boolean)
+        {searchResults
           .sort((a, b) => (a.title > b.title ? 1 : b.title > a.title ? -1 : 0))
-          .filter(
-            ({ title }) =>
-              title && title.toLowerCase().includes(searchValue.toLowerCase())
-          )
-          .filter(({ tags }) =>
-            !selectedTag ? true : tags && tags.includes(selectedTag)
-          )
           .map(({ _id, title, explanation, example, tags }) => {
             return (
               <ConceptCard
