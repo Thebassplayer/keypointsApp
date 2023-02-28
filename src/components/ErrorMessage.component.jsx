@@ -1,3 +1,10 @@
+/**
+ * This component is used to display an error message when an error occurs.
+ *
+ * @returns {JSX.Element} - The error message component.
+ *
+ */
+
 import React, { useState } from "react";
 
 function ErrorMessage() {
@@ -13,11 +20,11 @@ function ErrorMessage() {
         className="relative rounded border border-red-400 bg-red-100 px-10 py-4 text-red-700"
         role="alert"
       >
-        <div className="flex flex-col items-center justify-center">
-          <div>
+        <div className="flex h-full flex-col items-center justify-evenly">
+          <p>
             <strong className="font-bold">An unexpected error happened</strong>
-          </div>
-          <div className="block sm:inline">Try again later</div>
+          </p>
+          <p className="block sm:inline">Try again later</p>
         </div>
         <button onClick={handleShow}>
           <span className="absolute top-0 right-0">
