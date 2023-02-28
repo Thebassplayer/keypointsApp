@@ -11,7 +11,7 @@
  * @file useDebouncedSearch.jsx
  */
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export const useDebouncedSearch = (
   concepts,
@@ -21,6 +21,7 @@ export const useDebouncedSearch = (
   delay
 ) => {
   const [searchResults, setSearchResults] = useState([]);
+  const timeoutId = useRef(null);
 
   // Tag filter
   useEffect(() => {
@@ -45,7 +46,7 @@ export const useDebouncedSearch = (
     }
 
     // Update debounced value after delay
-    const handler = setTimeout(() => {
+    timeoutId.current = setTimeout(() => {
       const resultsFilteredBySearch = concepts.filter(
         ({ title }) =>
           title && title.toLowerCase().includes(searchValue.toLowerCase())
@@ -57,7 +58,7 @@ export const useDebouncedSearch = (
     // This is how we prevent debounced value from updating if value is changed ...
     // .. within the delay period. Timeout gets cleared and restarted.
     return () => {
-      clearTimeout(handler);
+      clearTimeout(timeoutId.current);
     };
   }, [concepts, searchValue, delay]);
 
