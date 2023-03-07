@@ -1,6 +1,14 @@
-import React from "react";
+import React, { InputHTMLAttributes } from "react";
 
-function SearchBar({ setSearchValue, searchValue }) {
+type SearchBarProps = {
+  setSearchValue: React.Dispatch<React.SetStateAction<string>>;
+  searchValue?: string;
+};
+
+function SearchBar({
+  setSearchValue,
+  searchValue = "",
+}: SearchBarProps): JSX.Element {
   return (
     <input
       className="mb-4 h-10 w-full rounded-md p-2 text-lg font-medium outline-0"

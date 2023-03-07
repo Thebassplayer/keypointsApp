@@ -7,8 +7,8 @@ import Footer from "./components/Footer.component";
 
 import "./index.css";
 
-function App() {
-  const [searchValue, setSearchValue] = useState("");
+function App(): JSX.Element {
+  const [searchValue, setSearchValue] = useState<string>("");
 
   return (
     <div className="flex h-screen w-full flex-col items-center justify-between bg-[color:#242424] pt-4">

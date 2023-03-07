@@ -2,7 +2,17 @@ import React, { useState } from "react";
 import { Disclosure } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
-function ConceptButton({ title, tags, isOpen }) {
+interface ConceptButtonProps {
+  title: string;
+  tags?: string[];
+  isOpen: boolean;
+}
+
+function ConceptButton({
+  title,
+  tags,
+  isOpen,
+}: ConceptButtonProps): JSX.Element {
   const buttonBackgroundColor = isOpen
     ? "bg-[color:var(--color-active)]"
     : "bg-[color:var(--color-100)] hover:bg-[color:var(--color-hover)]";

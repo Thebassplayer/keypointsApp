@@ -1,15 +1,25 @@
-import React from "react";
 import { PortableText } from "@portabletext/react";
 import SanityCodehighlighted from "./SanityCodeHighlighted/SanityCodeHighlighted.component";
 
 import { Disclosure } from "@headlessui/react";
 import ExampleCodeContainer from "./ExampleCodeContainer.component";
 import StackBlitzCode from "./StackblitzCode.component";
-function ExplanationContainer({ props }) {
+
+interface ExplanationContainerProps {
+  props: {
+    _id: string;
+    title: string;
+    explanation: any;
+    example: any;
+  };
+}
+
+function ExplanationContainer({ props }: ExplanationContainerProps) {
   const { _id, title, explanation, example } = props;
 
-  const sanityCode = ({ value }) =>
+  const sanityCode = ({ value }: any) =>
     value && <SanityCodehighlighted language="js" code={value.code} />;
+
   const sanityComponents = {
     types: {
       code: sanityCode,
@@ -21,7 +31,7 @@ function ExplanationContainer({ props }) {
       {explanation && (
         <div className="prose max-w-none pb-2">
           <PortableText
-            style={{ "p > code": { color: "red" } }}
+            // style={{ "p > code": { color: "red" } }}
             value={explanation}
             components={sanityComponents}
           />

@@ -1,7 +1,11 @@
 import React from "react";
 import { useTagUpdate } from "../contexts/selectedTagsContext";
 
-function TagSelector({ globalTags }) {
+interface TagSelectorProps {
+  globalTags: string[];
+}
+
+function TagSelector({ globalTags }: TagSelectorProps): JSX.Element {
   const updateTag = useTagUpdate();
 
   return (

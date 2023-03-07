@@ -4,9 +4,15 @@ import ConceptButton from "./ConceptButton.component";
 
 import ExplanationContainer from "./ExplanationContainer.component";
 
-import React from "react";
+interface ConceptCardProps {
+  props: {
+    _id?: string;
+    title: string;
+    tags: string[];
+  };
+}
 
-function ConceptCard({ props }) {
+function ConceptCard({ props }: ConceptCardProps) {
   const { title, tags } = props;
 
   return (

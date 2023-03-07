@@ -9,7 +9,11 @@ import TableHeading from "./TableHeading.component";
 import Spinner from "./Spinner.component";
 import ErrorMessage from "./ErrorMessage.component";
 
-const ConceptsList = ({ searchValue }) => {
+interface ConceptsListProps {
+  searchValue: string;
+}
+
+const ConceptsList = ({ searchValue }: ConceptsListProps): JSX.Element => {
   const { concepts, globalTags, loading, error } = useSanityData();
 
   const selectedTag = useTag();

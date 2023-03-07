@@ -5,7 +5,8 @@ import { templateProject } from "./proyect";
 /*
   Embed the project
  */
-async function embedProject(title, example, id) {
+
+async function embedProject(title: string, example: string, id: string) {
   sdk.embedProject(`embed-${id}`, templateProject(title, example), {
     clickToLoad: true,
     hideDevTools: false,
