@@ -8,7 +8,7 @@
 import React, { useState } from "react";
 
 const ErrorMessage = (): JSX.Element | null => {
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState<boolean>(true);
 
   const handleShow = () => {
     setShow(false);
