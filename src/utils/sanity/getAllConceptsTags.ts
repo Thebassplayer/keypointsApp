@@ -1,4 +1,4 @@
-export function getAllConceptsTags(concepts) {
+export function getAllConceptsTags(concepts: any[]): string[] {
   const globalTags = concepts
     .map(concept => concept.tags)
     .filter(Boolean)

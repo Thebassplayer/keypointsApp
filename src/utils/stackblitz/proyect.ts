@@ -1,4 +1,4 @@
-export const templateProject = (title, example) => {
+export const templateProject = (title: string, example: string) => {
   return {
     title: title,
     description: "Example",

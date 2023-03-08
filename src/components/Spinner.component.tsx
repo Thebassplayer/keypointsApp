@@ -1,6 +1,6 @@
 import React from "react";
 
-function Spinner() {
+function Spinner(): JSX.Element {
   return (
     <div className="flex w-full justify-center pt-4">
       <div role="status">

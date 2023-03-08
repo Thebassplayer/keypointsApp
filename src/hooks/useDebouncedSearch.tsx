@@ -13,15 +13,33 @@
 
 import { useState, useEffect, useRef } from "react";
 
-export const useDebouncedSearch = (
+interface UseDebouncedSearchParams {
+  concepts: Concept[];
+  searchValue: string;
+  selectedTag: string;
+  delay: number;
+}
+
+export interface Concept {
+  _id: string;
+  title: string;
+  explanation: string;
+  example: string;
+  tags: string[];
+}
+
+interface UseDebouncedSearchResult {
+  searchResults: any[];
+}
+
+export const useDebouncedSearch = ({
   concepts,
   searchValue,
-  tags,
   selectedTag,
-  delay
-) => {
-  const [searchResults, setSearchResults] = useState([]);
-  const timeoutId = useRef(null);
+  delay,
+}: UseDebouncedSearchParams): UseDebouncedSearchResult => {
+  const [searchResults, setSearchResults] = useState<Concept[]>([]);
+  const timeoutId = useRef<number | null>(null);
 
   // Tag filter
   useEffect(() => {
@@ -35,7 +53,7 @@ export const useDebouncedSearch = (
       !selectedTag ? true : tags && tags.includes(selectedTag)
     );
     setSearchResults(resultsFilteredByTag);
-  }, [tags, selectedTag]);
+  }, [concepts, selectedTag]);
 
   // Search filter
   useEffect(() => {
@@ -46,7 +64,7 @@ export const useDebouncedSearch = (
     }
 
     // Update debounced value after delay
-    timeoutId.current = setTimeout(() => {
+    timeoutId.current = window.setTimeout(() => {
       const resultsFilteredBySearch = concepts.filter(
         ({ title }) =>
           title && title.toLowerCase().includes(searchValue.toLowerCase())
@@ -58,9 +76,11 @@ export const useDebouncedSearch = (
     // This is how we prevent debounced value from updating if value is changed ...
     // .. within the delay period. Timeout gets cleared and restarted.
     return () => {
-      clearTimeout(timeoutId.current);
+      if (timeoutId.current) {
+        clearTimeout(timeoutId.current);
+      }
     };
-  }, [concepts, searchValue, delay]);
+  }, [concepts, delay, searchValue]);
 
   return { searchResults };
 };

@@ -7,7 +7,12 @@ import "./SanityCodeHighlighted.styles.css";
 // Then register them
 Refractor.registerLanguage(js);
 
-function SanityCodehighlighted({ code, language }) {
+interface SanityCodehighlightedProps {
+  code: string;
+  language: string;
+}
+
+function SanityCodehighlighted({ code, language }: SanityCodehighlightedProps) {
   return <Refractor language={language} value={code} />;
 }
 

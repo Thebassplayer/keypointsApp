@@ -9,18 +9,23 @@ import TableHeading from "./TableHeading.component";
 import Spinner from "./Spinner.component";
 import ErrorMessage from "./ErrorMessage.component";
 
-const ConceptsList = ({ searchValue }) => {
+import type { Concept } from "../hooks/useDebouncedSearch";
+
+interface ConceptsListProps {
+  searchValue: string;
+}
+
+const ConceptsList = ({ searchValue }: ConceptsListProps): JSX.Element => {
   const { concepts, globalTags, loading, error } = useSanityData();
 
   const selectedTag = useTag();
-  const debounceDelay = 600;
-  const { searchResults } = useDebouncedSearch(
+  const delay = 600;
+  const { searchResults } = useDebouncedSearch({
     concepts,
     searchValue,
-    globalTags,
     selectedTag,
-    debounceDelay
-  );
+    delay,
+  });
 
   if (loading) {
     return (
@@ -44,7 +49,7 @@ const ConceptsList = ({ searchValue }) => {
             return (
               <ConceptCard
                 key={_id}
-                props={{ _id, title, explanation, example, tags }}
+                props={{ _id, title, explanation, example, tags } as Concept}
               />
             );
           })}
