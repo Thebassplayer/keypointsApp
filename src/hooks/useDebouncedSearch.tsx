@@ -16,24 +16,25 @@ import { useState, useEffect, useRef } from "react";
 interface UseDebouncedSearchParams {
   concepts: Concept[];
   searchValue: string;
-  tags: string[];
   selectedTag: string;
   delay: number;
 }
 
-interface Concept {
+export interface Concept {
+  _id: string;
   title: string;
+  explanation: string;
+  example: string;
   tags: string[];
 }
 
 interface UseDebouncedSearchResult {
-  searchResults: Concept[];
+  searchResults: any[];
 }
 
-const useDebouncedSearch = ({
+export const useDebouncedSearch = ({
   concepts,
   searchValue,
-  tags,
   selectedTag,
   delay,
 }: UseDebouncedSearchParams): UseDebouncedSearchResult => {
